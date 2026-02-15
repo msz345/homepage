@@ -13,4 +13,4 @@ I mainly use Proxmox to host my containers. Instead of setuping up each containe
 
 After the homepage container is setup, I use Ansible to configure the homepage service, but you also can copy the files manually to its destination.
 Just copy config files [/opt/homepage/config/](/opt/homepage/config/). Same for any picture that need to be copied to [/opt/homepage/public/images/](/opt/homepage/public/images/).
-Finally, enter your secrets as environment viarables in [/opt/homepage/.env](/opt/homepage/.env).
+Finally, enter your secrets as environment viarables (HOMEPAGE_VAR_*) in [/opt/homepage/.env](/opt/homepage/.env).
