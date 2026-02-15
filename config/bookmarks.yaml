@@ -18,13 +18,15 @@
 - Developer:
     - Gitea:
         - icon: si-gitea
-          href: https://gitea.schulz-navarro.xyz
+          # prettier-ignore
+          href: https://gitea.{{HOMEPAGE_VAR_MY_DOMAIN}}
     - Github:
         - icon: si-github
           href: https://github.com/
     - pgAdmin:
         - icon: si-postgresql
-          href: https://pgadmin.schulz-navarro.xyz
+          # prettier-ignore
+          href: https://pgadmin.{{HOMEPAGE_VAR_MY_DOMAIN}}/pgadmin4
     - Proxmox VE Helper:
         - icon: si-proxmox
           href: https://tteck.github.io/Proxmox
@@ -70,17 +72,21 @@
 - Documentation:
     - BookStack:
         - icon: si-bookstack
-          href: https://bookstack.schulz-navarro.xyz
+          # prettier-ignore
+          href: https://bookstack.{{HOMEPAGE_VAR_MY_DOMAIN}}
     - Trilium Notes:
         - icon: si-trilium
-          href: https://trilium.schulz-navarro.xyz
+          # prettier-ignore
+          href: https://trilium.{{HOMEPAGE_VAR_MY_DOMAIN}}
 - Lifestyle:
     - Mealie:
         - icon: si-mealie
-          href: https://mealie.schulz-navarro.xyz
+          # prettier-ignore
+          href: https://mealie.{{HOMEPAGE_VAR_MY_DOMAIN}}
     - Cookbook:
         - icon: si-nextcloud
-          href: https://nc.schulz-navarro.xyz/apps/cookbook/#
+          # prettier-ignore
+          href: https://nc.{{HOMEPAGE_VAR_MY_DOMAIN}}/apps/cookbook/#
     - Chefkoch:
         - icon: mdi-chef-hat
           href: https://www.chefkoch.de/mein-kochbuch
