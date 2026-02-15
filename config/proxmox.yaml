@@ -1,0 +1,30 @@
+---
+# !!! Ansible managed !!!
+# pve:
+#   url: https://proxmox.host.or.ip:8006
+#   token: username@pam!Token ID
+#   secret: secret
+
+# Note: In VSCode use Ctrl+ K, Ctrl+Shift+S to save without prettier formatting breaking the {{text}} structure req. for homepage
+
+pve10:
+  # prettier-ignore
+  url: https://pve10.{{HOMEPAGE_VAR_MY_DOMAIN}}
+  # prettier-ignore
+  token: {{HOMEPAGE_VAR_PROXMOX_USERNAME}}
+  # prettier-ignore
+  secret: {{HOMEPAGE_VAR_PROXMOX_PASSWORD}}
+pve20:
+  # prettier-ignore
+  url: https://pve20.{{HOMEPAGE_VAR_MY_DOMAIN}}
+  # prettier-ignore
+  token: {{HOMEPAGE_VAR_PROXMOX_USERNAME}}
+  # prettier-ignore
+  secret: {{HOMEPAGE_VAR_PROXMOX_PASSWORD}}
+pve30:
+  # prettier-ignore
+  url: https://pve30.{{HOMEPAGE_VAR_MY_DOMAIN}}
+  # prettier-ignore
+  token: {{HOMEPAGE_VAR_PROXMOX_USERNAME}}
+  # prettier-ignore
+  secret: {{HOMEPAGE_VAR_PROXMOX_PASSWORD}}
