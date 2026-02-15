@@ -1,0 +1,565 @@
+---
+# !!! Ansible managed !!!
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/services/
+# Material Design Icons with mdi-XX: https://pictogrammers.com/library/mdi/
+# Simple Icons with si-XX: https://simpleicons.org/
+
+# Note: In VSCode use Ctrl+ K, Ctrl+Shift+S to save without prettier formatting breaking the {{text}} structure req. for homepage
+
+# - Services:
+- Hypervisor Services:
+    - Proxmox VE Services:
+        - pve10:
+            # prettier-ignore
+            href: https://pve10.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Proxmox VE (Bookstack, Vaultwarden, Gitea, TrueNAS)
+            icon: si-proxmox
+            # prettier-ignore
+            siteMonitor: https://pve10.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            widget:
+              type: proxmox
+              # prettier-ignore
+              url: https://pve10.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              username: {{HOMEPAGE_VAR_PROXMOX_USERNAME}}
+              # prettier-ignore
+              password: {{HOMEPAGE_VAR_PROXMOX_PASSWORD}}
+              node: pve10 # optional
+              highlight:
+                MEM:
+                  numeric:
+                    - level: danger
+                      when: gte
+                      value: 80
+                    - level: warn
+                      when: gte
+                      value: 70
+                    - level: good
+                      when: eq
+                      value: 0
+        - pve20:
+            # prettier-ignore
+            href: https://pve20.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Proxmox VE (Nextcloud, Jellyfin, UrBackup, arr-stack)
+            icon: si-proxmox
+            # prettier-ignore
+            siteMonitor: https://pve20.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            widget:
+              type: proxmox
+              # prettier-ignore
+              url: https://pve20.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              username: {{HOMEPAGE_VAR_PROXMOX_USERNAME}}
+              # prettier-ignore
+              password: {{HOMEPAGE_VAR_PROXMOX_PASSWORD}}
+              node: pve20 # optional
+              highlight:
+                MEM:
+                  numeric:
+                    - level: danger
+                      when: gte
+                      value: 80
+                    - level: warn
+                      when: gte
+                      value: 70
+                    - level: good
+                      when: eq
+                      value: 0
+        - pve30:
+            # prettier-ignore
+            href: https://pve30.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Proxmox VE (quorum cluster)
+            icon: si-proxmox
+            # prettier-ignore
+            siteMonitor: https://pve30.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            widget:
+              type: proxmox
+              # prettier-ignore
+              url: https://pve30.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              username: {{HOMEPAGE_VAR_PROXMOX_USERNAME}}
+              # prettier-ignore
+              password: {{HOMEPAGE_VAR_PROXMOX_PASSWORD}}
+              node: pve30 # optional
+              highlight:
+                MEM:
+                  numeric:
+                    - level: danger
+                      when: gte
+                      value: 80
+                    - level: warn
+                      when: gte
+                      value: 70
+                    - level: good
+                      when: eq
+                      value: 0
+    - Docker Services:
+        - Nextcloud:
+            # prettier-ignore
+            href: https://podman.{{HOMEPAGE_VAR_MY_DOMAIN}}/#!/7/docker/dashboard
+            description: Nextcloud AIO
+            icon: si-portainer
+            # prettier-ignore
+            siteMonitor: https://podman.{{HOMEPAGE_VAR_MY_DOMAIN}}/#!/7/docker/dashboard
+            proxmoxNode: pve10
+            proxmoxVMID: 118
+            proxmoxType: lxc
+            widget:
+              type: portainer
+              # prettier-ignore
+              url: https://podman.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              env: 7
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_PORTAINER_KEY}}
+        - Podman:
+            # prettier-ignore
+            href: https://podman.{{HOMEPAGE_VAR_MY_DOMAIN}}/#!/2/docker/dashboard
+            description: Authentik, Speedtest
+            icon: si-portainer
+            # prettier-ignore
+            siteMonitor: https://podman.{{HOMEPAGE_VAR_MY_DOMAIN}}/#!/2/docker/dashboard
+            proxmoxNode: pve10
+            proxmoxVMID: 122
+            proxmoxType: qemu
+            widget:
+              type: portainer
+              # prettier-ignore
+              url: https://podman.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              env: 2
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_PORTAINER_KEY}}
+        - Vaultwarden:
+            # prettier-ignore
+            href: https://podman.{{HOMEPAGE_VAR_MY_DOMAIN}}/#!/9/docker/dashboard
+            description: Vaultwarden Password Manager
+            icon: si-portainer
+            # prettier-ignore
+            siteMonitor: https://podman.{{HOMEPAGE_VAR_MY_DOMAIN}}/#!/9/docker/dashboard
+            proxmoxNode: pve10
+            proxmoxVMID: 121
+            proxmoxType: lxc
+            widget:
+              type: portainer
+              # prettier-ignore
+              url: https://podman.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              env: 9
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_PORTAINER_KEY}}
+        - Unifi:
+            # prettier-ignore
+            href: https://podman.{{HOMEPAGE_VAR_MY_DOMAIN}}/#!/5/docker/dashboard
+            description: Unifi Network Application
+            icon: si-portainer
+            # prettier-ignore
+            siteMonitor: https://podman.{{HOMEPAGE_VAR_MY_DOMAIN}}/#!/5/docker/dashboard
+            proxmoxNode: pve20
+            proxmoxVMID: 108
+            proxmoxType: lxc
+            widget:
+              type: portainer
+              # prettier-ignore
+              url: https://podman.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              env: 5
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_PORTAINER_KEY}}
+- Infrastructure Services:
+    - Networking Services:
+        - Speedtest Tracker:
+            # prettier-ignore
+            href: https://speedtest.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Internet Speed Test
+            icon: si-speedtest # myspeed
+            # prettier-ignore
+            siteMonitor: https://speedtest.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            widget:
+              type: speedtest
+              # prettier-ignore
+              url: https://speedtest.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              version: 2 # optional, default is 1
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_SPEEDTEST_KEY}}
+              bitratePrecision: 0 # optional, default is 0
+        - OPNSense-primary:
+            # prettier-ignore
+            href: https://opnsense-primary.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Firewall, DHCP Server, Reverse Proxy
+            icon: si-opnsense
+            # prettier-ignore
+            siteMonitor: https://opnsense-primary.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            widget:
+              type: opnsense
+              # prettier-ignore
+              url: https://opnsense-primary.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              username: {{HOMEPAGE_VAR_OPNSENSE_USERNAME}}
+              # prettier-ignore
+              password: {{HOMEPAGE_VAR_OPNSENSE_PASSWORD}}
+        - OPNSense-secondary:
+            # prettier-ignore
+            href: https://opnsense-secondary.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Firewall, DHCP Server, Reverse Proxy
+            icon: si-opnsense
+            # prettier-ignore
+            siteMonitor: https://opnsense-secondary.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            widget:
+              type: opnsense
+              # prettier-ignore
+              url: https://opnsense-secondary.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              username: {{HOMEPAGE_VAR_OPNSENSE_USERNAME}}
+              # prettier-ignore
+              password: {{HOMEPAGE_VAR_OPNSENSE_PASSWORD}}
+        - Unifi:
+            # prettier-ignore
+            href: https://unifi.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Unifi Controller
+            icon: si-unity # unifi
+            # prettier-ignore
+            siteMonitor: https://unifi.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            widget:
+              type: unifi
+              # prettier-ignore
+              url: https://unifi.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              username: {{HOMEPAGE_VAR_UNIFI_USERNAME}}
+              # prettier-ignore
+              password: {{HOMEPAGE_VAR_UNIFI_PASSWORD}}
+        - Authentik:
+            # prettier-ignore
+            href: https://authentik.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Single-Sign-On (SSO)
+            icon: si-authentik
+            # prettier-ignore
+            siteMonitor: https://authentik.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            widget:
+              type: authentik
+              # prettier-ignore
+              url: https://authentik.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_AUTHENTIK_KEY}}
+              version: 2 # optional, default is 1
+    - Backup Services:
+        - Proxmox Backup Server:
+            # prettier-ignore
+            href: https://pbs.{{HOMEPAGE_VAR_MY_DOMAIN}}/#pbsDashboard
+            description: VM & LXC Backup Server
+            icon: si-proxmox
+            # prettier-ignore
+            siteMonitor: https://pbs.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve20
+            proxmoxVMID: 107
+            proxmoxType: qemu
+            widget:
+              type: proxmoxbackupserver
+              # prettier-ignore
+              url: https://pbs.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              username: {{HOMEPAGE_VAR_PROXMOX_BACKUP_USERNAME}}
+              # prettier-ignore
+              password: {{HOMEPAGE_VAR_PROXMOX_BACKUP_PASSWORD}}
+              highlight:
+                Failed Tasks 24h:
+                  numeric:
+                    - level: danger
+                      when: gte
+                      value: 5
+                    - level: warn
+                      when: gte
+                      value: 1
+                    - level: good
+                      when: eq
+                      value: 0
+        - UrBackup:
+            # prettier-ignore
+            href: https://urbackup.{{HOMEPAGE_VAR_MY_DOMAIN}}/
+            description: Intranet Backup Server
+            icon: mdi-safe
+            # prettier-ignore
+            siteMonitor: https://urbackup.{{HOMEPAGE_VAR_MY_DOMAIN}}/
+            proxmoxNode: pve20
+            proxmoxVMID: 119
+            proxmoxType: lxc
+            widget:
+              type: urbackup
+              # prettier-ignore
+              username: {{HOMEPAGE_VAR_URBACKUP_USERNAME}}
+              # prettier-ignore
+              password: {{HOMEPAGE_VAR_URBACKUP_PASSWORD}}
+              # prettier-ignore
+              url: https://urbackup.{{HOMEPAGE_VAR_MY_DOMAIN}}/
+              maxDays: 5
+              fields: ["ok", "errored", "noRecent", "totalUsed"]
+              highlight:
+                Errors:
+                  numeric:
+                    - level: danger
+                      when: gte
+                      value: 5
+                    - level: warn
+                      when: gte
+                      value: 1
+                    - level: good
+                      when: eq
+                      value: 0
+    - Cloud & Storage Services:
+        - Nextcloud:
+            # prettier-ignore
+            href: https://nc.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Nextcloud AIO
+            icon: si-nextcloud
+            # prettier-ignore
+            siteMonitor: https://nc.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            widget:
+              type: nextcloud
+              # prettier-ignore
+              url: https://nc.{{HOMEPAGE_VAR_MY_DOMAIN}} # https://nc.{{HOMEPAGE_VAR_MY_DOMAIN}}/ocs/v2.php/apps/serverinfo/api/v1/info
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_NEXTCLOUD_NC_TOKEN}}
+        - Truenas:
+            # prettier-ignore
+            href: https://truenas.{{HOMEPAGE_VAR_MY_DOMAIN}}/ui/sessions/signin
+            description: TrueNAS Core
+            icon: si-truenas
+            # prettier-ignore
+            siteMonitor: https://truenas.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve10
+            proxmoxVMID: 200
+            proxmoxType: qemu
+            widget:
+              type: truenas
+              # prettier-ignore
+              url: https://truenas.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_TRUENAS_KEY}} # not required if using username / password
+              enablePools: true # optional, defaults to false
+              nasType: core # defaults to scale, must be set to 'core' if using enablePools with TrueNAS Core
+              highlight:
+                alerts:
+                  numeric:
+                    - level: danger
+                      when: gte
+                      value: 5
+                    - level: warn
+                      when: gte
+                      value: 1
+                    - level: good
+                      when: eq
+                      value: 0
+        - Postgresql:
+            # prettier-ignore
+            href: https://pgadmin.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: PostgreSQL Database Server
+            icon: si-postgresql
+            # prettier-ignore
+            siteMonitor: http://{{HOMEPAGE_VAR_VLAN_20}}.126
+            proxmoxNode: pve10
+            proxmoxVMID: 126
+            proxmoxType: lxc
+
+- Other Services:
+    - Entertainment Services:
+        - Jellyfin:
+            # prettier-ignore
+            href: https://jellyfin.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Jellyfin Media Server
+            icon: si-jellyfin
+            # prettier-ignore
+            siteMonitor: https://jellyfin.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve10
+            proxmoxVMID: 104
+            proxmoxType: lxc
+            widget:
+              type: jellyfin
+              # prettier-ignore
+              url: https://jellyfin.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_JELLYFIN_KEY}}
+              version: 1
+              enableBlocks: true
+              enableNowPlaying: true
+              enableMediaControl: true
+    - Food & Beverage Services:
+        - Mealie:
+            # prettier-ignore
+            href: https://mealie.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Mealie Recipe Manager
+            icon: si-mealie
+            # prettier-ignore
+            siteMonitor: https://mealie.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve10
+            proxmoxVMID: 134
+            proxmoxType: lxc
+            widget:
+              type: mealie
+              # prettier-ignore
+              url: https://mealie.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_MEALIE_KEY}}
+              version: 2 # only required if version > 1, defaults to 1
+    - Game Server Services:
+        - Pelican Panel:
+            # prettier-ignore
+            href: https://pelican_panel.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Pelican Panel Game Server Dashboard
+            icon: si-pelican
+            # prettier-ignore
+            siteMonitor: https://pelican_panel.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve20
+            proxmoxVMID: 102
+            proxmoxType: lxc
+            widget:
+              type: pterodactyl
+              # prettier-ignore
+              url: https://pelican_panel.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_PELICAN_KEY}}
+        - Pelican Wings:
+            # prettier-ignore
+            href: https://pelican_panel.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Pelican Panel Game Server Wings
+            icon: si-pelican
+            # prettier-ignore
+            siteMonitor: https://pelican_panel.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve20
+            proxmoxVMID: 110
+            proxmoxType: lxc
+            # widget:
+            #   type: gamedig
+            #   serverType: asa # see https://github.com/gamedig/node-gamedig#games-list
+            #   # prettier-ignore
+            #   url: udp://{{HOMEPAGE_VAR_VLAN_20}}.110:7777
+            #   # gameToken: # optional, a token used by gamedig with certain games
+    - Development Services:
+        - Gitea:
+            # prettier-ignore
+            href: https://gitea.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Git Repositories
+            icon: si-gitea
+            # prettier-ignore
+            siteMonitor: https://gitea.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve10
+            proxmoxVMID: 125
+            proxmoxType: lxc
+            widget:
+              type: gitea
+              # prettier-ignore
+              url: https://gitea.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_GITEA_KEY}}
+    - Documentation Services:
+        - Bookstack:
+            # prettier-ignore
+            href: https://bookstack.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Bookstack Documentation Wiki
+            icon: si-bookstack
+            # prettier-ignore
+            siteMonitor: https://bookstack.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve20
+            proxmoxVMID: 111
+            proxmoxType: lxc
+        - Trilium:
+            # prettier-ignore
+            href: https://trilium.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Trilium Notes
+            icon: si-trilium
+            # prettier-ignore
+            siteMonitor: https://trilium.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve10
+            proxmoxVMID: 135
+            proxmoxType: lxc
+            widget:
+              type: trilium
+              # prettier-ignore
+              url: https://trilium.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_TRILIUM_KEY}}
+    - Download Services:
+        - Sonarr:
+            # prettier-ignore
+            href: https://sonarr.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: TV Show Downloader
+            icon: si-sonarr
+            # prettier-ignore
+            siteMonitor: https://sonarr.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve20
+            proxmoxVMID: 127
+            proxmoxType: lxc
+            widget:
+              type: sonarr
+              # prettier-ignore
+              url: https://sonarr.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_SONARR_KEY}}
+              # enableQueue: true # optional, defaults to false
+        - Radarr:
+            # prettier-ignore
+            href: https://radarr.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Movie Downloader
+            icon: si-radarr
+            # prettier-ignore
+            siteMonitor: https://radarr.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve20
+            proxmoxVMID: 128
+            proxmoxType: lxc
+            widget:
+              type: radarr
+              # prettier-ignore
+              url: https://radarr.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_RADARR_KEY}}
+              # enableQueue: true # optional, defaults to false
+        - Prowlarr:
+            # prettier-ignore
+            href: https://prowlarr.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Indexer Manager
+            icon: si-indeed
+            # prettier-ignore
+            siteMonitor: https://prowlarr.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve20
+            proxmoxVMID: 130
+            proxmoxType: lxc
+            widget:
+              type: prowlarr
+              # prettier-ignore
+              url: https://prowlarr.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_PROWLARR_KEY}}
+        - SABnzbd:
+            # prettier-ignore
+            href: https://sabnzbd.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            description: Automated Usenet Download Tool
+            icon: si-rolldown
+            # prettier-ignore
+            siteMonitor: https://sabnzbd.{{HOMEPAGE_VAR_MY_DOMAIN}}
+            proxmoxNode: pve20
+            proxmoxVMID: 124
+            proxmoxType: lxc
+            widget:
+              type: sabnzbd
+              # prettier-ignore
+              url: https://sabnzbd.{{HOMEPAGE_VAR_MY_DOMAIN}}
+              # prettier-ignore
+              key: {{HOMEPAGE_VAR_SABNZBD_KEY}}
+
+- Calendar:
+    - Posteo Calendar:
+        href: https://posteo.de/webmail/?_task=dummy&_action=plugin.calendar
+        description: Posteo Standard Calendar
+        icon: si-googlecalendar
+        # siteMonitor: https://posteo.de/webmail/?_task=dummy&_action=plugin.calendar
+        widget:
+          type: calendar
+          firstDayInWeek: monday # optional - defaults to monday
+          view: monthly # optional - possible values monthly, agenda
+          maxEvents: 10 # optional - defaults to 10
+          showTime: true # optional - show time for event happening today - defaults to false
+          # timezone: Europe/Berlin # optional and only when timezone is not detected properly (slightly slower performance)
+          integrations: # optional
+            - type: ical # Show calendar events from another service
+              # prettier-ignore
+              url: {{HOMEPAGE_VAR_CALDAV_URL}} # URL with calendar events
+              name: Standardkalender # required - name for these calendar events
+              color: zinc # optional - defaults to pre-defined color for the service (zinc for ical)
+              params: # optional - additional params for the service
+                showName: true # optional - show name before event title in event line - defaults to false
