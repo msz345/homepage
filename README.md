@@ -6,6 +6,8 @@ My homelab consits of a Proxmox cluster, and some docker VMs. In order to not ha
 Further I added my family calendar, and some useful bookmarks to the homepage.
 
 
+<img width="1566" height="1197" alt="image" src="https://github.com/user-attachments/assets/6a6c744f-4177-4055-b080-ca52988ea79f" />
+
 
 <img width="1567" height="1957" alt="image" src="https://github.com/user-attachments/assets/ab84d733-0f96-4d46-9eb0-400dbdf47eb0" />
 
