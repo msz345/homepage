@@ -1,0 +1,213 @@
+---
+# !!! Ansible managed !!!
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/settings/
+
+# title: My Awesome Homepage
+
+# description: A description of my awesome homepage
+
+# startUrl: https://custom.url # optional, set a custom URL to open when clicking the homepage logo or when using the "Open Homepage" option in the search suggestions dropdown (defaults to https://homepage.schulz-navarro.xyz)
+
+# Source for 4k wallpapers: https://wallpapercave.com/4k-computer-dark-wallpapers
+background:
+  image: /images/wp9274763-4k-computer-dark-wallpapers.jpg
+  brightness: 90 # 0, 50, 75... see https://tailwindcss.com/docs/backdrop-brightness
+  blur: md # sm, "", md, xl... see https://tailwindcss.com/docs/backdrop-blur
+  opacity: 60 # 0-100
+#  saturate: 0 # 0, 50, 100... see https://tailwindcss.com/docs/backdrop-saturate
+
+# cardBlur: none # xs, md, x1, 2x1, 3x1, none ... see https://tailwindcss.com/docs/backdrop-blur
+
+# favicon: https://www.google.com/favicon.ico # optional, set a custom favicon for your homepage
+
+# theme: dark # dark or light
+
+# color: slate # slate, gray, zinc, neutral, stone, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose, red, white
+
+# blockHighlights: # You can set custom colors for the different block status levels (good, warn, danger) using Tailwind CSS classes.
+#   levels:
+#     good: "bg-emerald-500/40 text-emerald-950 dark:bg-emerald-900/60 dark:text-emerald-400"
+#     warn: "bg-amber-300/30 text-amber-900 dark:bg-amber-900/30 dark:text-amber-200"
+#     danger: "bg-rose-700/45 text-rose-200 dark:bg-rose-950/70 dark:text-rose-400"
+
+# pwa: # Progressive Web App settings, optional
+#   icons:
+#     - src: https://developer.mozilla.org/favicon-192x192.png
+#       type: image/png
+#       sizes: 192x192
+#     - src: https://developer.mozilla.org/favicon-512x512.png
+#       type: image/png
+#       sizes: 512x512
+
+layout: # You can configure service and bookmarks sections to be either "column" or "row" based layouts
+  # all tabs
+  Calendar: # service group name
+    # tab: Others
+    style: column
+    header: true
+    icon: mdi-calendar # mdi-calendar-#FFFFFF
+  Documentation: # bookmark group name
+    # tab: Others
+    style: column
+    header: true
+    icon: mdi-book-open-variant # mdi-book-open-variant-#FFFFFF
+  Developer: # bookmark group name
+    # tab: Others
+    style: column
+    header: true
+    icon: mdi-code-tags # mdi-code-tags-#FFFFFF
+  # hypervisor tab
+  Hypervisor Services: # service group name
+    tab: Hypervisor
+    style: row
+    header: false
+    icon: mdi-server # mdi-server-#FFFFFF
+    initiallyCollapsed: false
+    Proxmox VE Services:
+      icon: si-proxmox
+      style: row
+      columns: 4
+      useEqualHeights: true
+    Docker Services:
+      icon: si-docker
+      style: row
+      columns: 4
+      useEqualHeights: true
+
+  # infrastructure tab
+  Security: # bookmark group name
+    tab: Infrastructure
+    style: column
+    header: true
+    icon: mdi-shield-lock # mdi-shield-lock-#FFFFFF
+  Infrastructure Services: # service group name
+    tab: Infrastructure
+    style: row
+    header: false
+    icon: mdi-tools # mdi-tools-#FFFFFF
+    initiallyCollapsed: false
+    Networking Services:
+      icon: mdi-network # mdi-network-#FFFFFF
+      style: row
+      columns: 4
+      useEqualHeights: true
+    Backup Services:
+      icon: mdi-backup-restore # mdi-backup-restore-#FFFFFF
+      style: row
+      columns: 4
+      useEqualHeights: true
+    Cloud & Storage Services:
+      icon: mdi-cloud # mdi-cloud-#FFFFFF
+      style: row
+      columns: 4
+      useEqualHeights: true
+
+  # others tab
+  Social Media: # bookmark group name
+    tab: Others
+    style: column
+    header: true
+    icon: mdi-account-group # mdi-account-group-#FFFFFF
+  Gaming: # bookmark group name
+    tab: Others
+    style: column
+    header: true
+    icon: mdi-gamepad-variant # mdi-gamepad-variant-#FFFFFF
+  Shopping: # bookmark group name
+    tab: Others
+    style: column
+    header: true
+    icon: mdi-cart # mdi-cart-#FFFFFF
+  Lifestyle: # bookmark group name
+    tab: Others
+    style: column
+    header: true
+    icon: mdi-cup-water # mdi-cup-water-#FFFFFF
+  Other Services: # service group name
+    tab: Others
+    style: row
+    header: false
+    icon: mdi-dots-horizontal # mdi-dots-horizontal-#FFFFFF
+    initiallyCollapsed: false
+    Entertainment Services:
+      icon: mdi-movie-open-check
+      style: row
+      columns: 3
+      useEqualHeights: true
+    Food & Beverage Services:
+      icon: mdi-food-apple # mdi-food-apple-#FFFFFF
+      style: row
+      columns: 3
+      useEqualHeights: true
+    Game Server Services:
+      icon: mdi-gamepad-variant # mdi-gamepad-variant-#FFFFFF
+      style: row
+      columns: 3
+      useEqualHeights: true
+    Development Services:
+      icon: mdi-code-tags # mdi-code-tags-#FFFFFF
+      style: row
+      columns: 3
+      useEqualHeights: true
+    Documentation Services:
+      icon: mdi-book-open-variant # mdi-book-open-variant-#FFFFFF
+      style: row
+      columns: 3
+      useEqualHeights: true
+    Download Services:
+      icon: mdi-download # mdi-download-#FFFFFF
+      style: row
+      columns: 4
+      useEqualHeights: true
+
+iconStyle: theme # optional, defaults to gradient
+
+fullWidth: false # default is false, set to true to make homepage full width
+
+maxGroupColumns: 4 # default is 4 for services
+
+maxBookmarkGroupColumns: 8 # default is 6, max 8
+
+disableCollapse: false # default is false, set to true to disable collapsing of service and bookmark groups
+
+groupsInitiallyCollapsed: false # default is false, set to true to have service and bookmark groups initially collapsed
+
+headerStyle: clean # style, underlined, boxed, clean, boxedWidgets, default is style
+
+base: https://homepage.schulz-navarro.xyz # optional, set a base URL for your homepage if it's not hosted at the root of your domain
+
+language: en
+
+target: _self # Possible options include _blank, _self, and _top - default is _blank
+
+providers:
+  openweathermap: openweathermapapikey
+  weatherapi: weatherapiapikey
+  # finnhub: yourfinnhubapikeyhere
+
+quicklaunch:
+  provider: custom # google, duckduckgo, bing, baidu, brave or custom
+  url: https://www.ecosia.org/search?q=
+  target: _blank
+  suggestionUrl: https://ac.ecosia.org/autocomplete?type=list&q=
+  showSearchSuggestions: true # default is false, set to true to show search suggestions when using the quick launch search bar
+  searchDescriptions: false # default is false, set to true to show search result descriptions in the search suggestions dropdown (only works if showSearchSuggestions is true)
+  hideInternetSearch: false # default is false, set to true to hide the "Search the Internet" option in the search suggestions dropdown when using the quick launch search bar (only works if showSearchSuggestions is true and provider is set to google, duckduckgo, bing, baidu or brave)
+  hideVisitURL: false # default is false, set to true to hide the "Visit URL" option in the search suggestions dropdown when using the quick launch search bar (only works if showSearchSuggestions is true and provider is set to google, duckduckgo, bing, baidu or brave)
+
+hideVersion: false # default is false, set to true to hide the version number in the about section
+
+disableUpdateCheck: false # default is false, set to true to disable the update check that runs in the background every 24 hours
+
+# logpath: /logfile/path # By default the homepage logfile is written to the a logs subdirectory of the config folder.
+
+showStats: true # default is true, show all docker or proxmox stats
+
+# statusStyle: "basic" # dot, basic. status styles for docker or k8s status, site monitor and ping
+
+instanceName: homepage.schulz-navarro.xyz # Name used by automatic docker service discovery to differentiate between multiple homepage instances
+
+hideErrors: false # default is false, set to true to hide error messages that are shown when a service or bookmark fails to load
+
+disableIndexing: true # default is false, set to true to add a noindex meta tag to the homepage to prevent search engines from indexing it
