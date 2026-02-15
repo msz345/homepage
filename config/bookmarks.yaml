@@ -1,0 +1,86 @@
+---
+# !!! Ansible managed !!!
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/bookmarks
+# Material Design Icons with mdi-XX: https://pictogrammers.com/library/mdi/
+# Simple Icons with si-XX: https://simpleicons.org/
+
+- Social Media:
+    - YouTube:
+        - icon: si-youtube
+          href: https://youtube.com
+    - Discord:
+        - icon: si-discord
+          href: https://discord.com
+    - Reddit:
+        - icon: si-reddit
+          href: https://reddit.com
+- Developer:
+    - Gitea:
+        - icon: si-gitea
+          href: https://gitea.schulz-navarro.xyz
+    - Github:
+        - icon: si-github
+          href: https://github.com/
+    - pgAdmin:
+        - icon: si-postgresql
+          href: https://pgadmin.schulz-navarro.xyz
+    - Proxmox VE Helper:
+        - icon: si-proxmox
+          href: https://tteck.github.io/Proxmox
+    - Homepage.dev:
+        - icon: si-homepage
+          href: https://gethomepage.dev
+- Gaming:
+    - GG Deals:
+        - icon: si-wikidotgg
+          href: https://gg.deals/
+    - prime gaming:
+        - icon: si-amazongames
+          href: https://gaming.amazon.com/home
+    - SteamDB:
+        - icon: si-steam
+          href: https://steamdb.info/
+    - Epic Games Store:
+        - icon: si-epicgames
+          href: https://www.epicgames.com/store/de
+- Security:
+    - Have I Been Pwned:
+        - icon: si-haveibeenpwned
+          href: https://haveibeenpwned.com
+    - VirusTotal:
+        - icon: si-virustotal
+          href: https://www.virustotal.com
+    - Firefox Monitor:
+        - icon: si-firefox
+          href: https://monitor.firefox.com
+- Shopping:
+    - Geizhals:
+        - icon: si-justgiving
+          href: https://geizhals.de
+    - Idealo:
+        - icon: mdi-alpha-i
+          href: https://idealo.de
+    - Amazon:
+        - icon: si-amazon
+          href: https://amazon.de
+    - eBay:
+        - icon: si-ebay
+          href: https://ebay.de
+- Documentation:
+    - BookStack:
+        - icon: si-bookstack
+          href: https://bookstack.schulz-navarro.xyz
+    - Trilium Notes:
+        - icon: si-trilium
+          href: https://trilium.schulz-navarro.xyz
+- Lifestyle:
+    - Mealie:
+        - icon: si-mealie
+          href: https://mealie.schulz-navarro.xyz
+    - Cookbook:
+        - icon: si-nextcloud
+          href: https://nc.schulz-navarro.xyz/apps/cookbook/#
+    - Chefkoch:
+        - icon: mdi-chef-hat
+          href: https://www.chefkoch.de/mein-kochbuch
