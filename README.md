@@ -5,7 +5,7 @@ Personal setup of my homepage, which caused my some headaches due to lacking rea
 My homelab consits of a Proxmox cluster, and some docker VMs. In order to not have too many widget visable at the same time (loading time or cluttering), I spilt them up into tabs.
 Further I added my family calendar, and some useful bookmarks to the homepage.
 
-<img width="1742" height="2003" alt="image" src="https://github.com/user-attachments/assets/5006e80f-368a-43a3-adda-54681ee10bfb" />
+<img width="1588" height="1978" alt="image" src="https://github.com/user-attachments/assets/0495f88d-8c91-446e-ae1e-78c4255d84b1" />
 
 ## Getting Started
 
