@@ -1,6 +1,6 @@
 # Homepage
 
-Personal setup of my homepage, which caused my some headaches due to lacking real world examples. That's why I make it public.
+Personal setup of my homepage, which caused me some headaches due to lacking real world examples. That's why I make it public.
 
 My homelab consits of a Proxmox cluster, and some docker VMs. In order to not have too many widget visable at the same time (loading time or cluttering), I spilt them up into tabs.
 Further I added my family calendar, and some useful bookmarks to the homepage.
