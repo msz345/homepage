@@ -15,7 +15,7 @@ Further I added my family calendar, and some useful bookmarks to the homepage.
 
 ## Getting Started
 
-I mainly use Proxmox to host my containers. Instead of setuping up each container itself, which I did many years, nowadays, I use the [Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/) community project. The project provides 400+ scripts to deploy and setup as much application - one is [gethomepage/homepage](https://github.com/gethomepage/homepage) itself.
+I mainly use Proxmox to host my containers. Instead of setting up each container itself, which I did many years, nowadays, I use the [Proxmox VE Helper-Scripts](https://community-scripts.github.io/ProxmoxVE/) community project. The project provides 400+ scripts to deploy and setup as much application - one is [gethomepage/homepage](https://github.com/gethomepage/homepage) itself.
 
 After the homepage container is setup, I use Ansible to configure the homepage service, but you also can copy the files manually to its destination.
 Just copy config files [/opt/homepage/config/](/opt/homepage/config/). Same for any picture that need to be copied to [/opt/homepage/public/images/](/opt/homepage/public/images/).
